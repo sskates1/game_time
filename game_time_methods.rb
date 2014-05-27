@@ -1,5 +1,4 @@
 require 'csv'
-require 'pry'
 
 #reads the movies from the csv file and returns an array
 def read_games_csv(csv)
@@ -17,6 +16,7 @@ def read_games_csv(csv)
   return games,teams
 end
 
+#get the game results for a single team specified
 def games_for_team(team,season_games)
   games_team = []
   season_games.each do |game|
@@ -32,6 +32,7 @@ def games_for_team(team,season_games)
   games_team
 end
 
+# get the win loss record for a team
 def get_record(team,season_games)
   # wins, losses, ties
   record = [0,0,0]
@@ -61,6 +62,7 @@ def get_record(team,season_games)
   record
 end
 
+# gets an ordered list of the teams based on number of wins then losses
 def get_leaderboard(season_games, teams)
   team_records = {}
   leaderboard = []

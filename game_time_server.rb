@@ -1,9 +1,6 @@
-#to run this program/file, rune 'ruby server.rb'
-#open webpage name 'localhost:4567'
+
 require_relative "game_time_methods"
 require 'sinatra'
-require 'json'
-require 'pry'
 
 results, teams = read_games_csv("results.csv")
 leaderboard = get_leaderboard(results, teams)
