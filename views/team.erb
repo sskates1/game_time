@@ -1,0 +1,52 @@
+<h1>
+  <%=@team%>
+</h1>
+
+<table border="1" style="width:300px">
+  <tr>
+    <td>Wins</td>
+    <td>Losses</td>
+    <td>Ties</td>
+  </tr>
+  <tr>
+    <% @record.each do |item|%>
+      <td><%=item%></item>
+    <% end %>
+  </tr>
+</table>
+<br>
+Results
+<table border="1" style="width:300px">
+  <tr>
+    <td>Home Team</td>
+    <td>Away Team</td>
+    <td>Home Score</td>
+    <td>Home Score</td>
+    <td>Result</td>
+  </tr>
+  <% @games_for_team.each do |game|%>
+    <tr>
+      <td><%= game["home_team"]%></td>
+      <td><%= game["away_team"]%></td>
+      <td><%= game["home_score"]%></td>
+      <td><%= game["away_score"]%></td>
+      <% if game["home_team"]==@team%>
+        <%if game["home_score"] > game["away_score"]%>
+          <td>Win</td>
+        <%elsif game["home_score"] < game["away_score"]%>
+          <td>Loss</td>
+        <%else%>
+          <td>Tie</td>
+        <%end%>
+      <%else%>
+        <%if game["home_score"] < game["away_score"]%>
+          <td>Win</td>
+        <%elsif game["home_score"] > game["away_score"]%>
+          <td>Loss</td>
+        <%else%>
+          <td>Tie</td>
+        <%end%>
+      <%end%>
+    </tr>
+  <%end%>
+</table>

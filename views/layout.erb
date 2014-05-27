@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"  href="/home.css">
+    <title>NFL Info</title>
+  </head>
+  <body>
+    <nav>
+    <a href="/">Home</a>
+    <form id="dropdown" action="/" method="post">
+      Go to
+        <select name="team">
+          <% @teams.each do |team| %>
+            <option value=<%= team %>><%= team %></option>
+          <% end %>
+        </select>
+      team page
+      <input type="submit"/>
+    </form>
+    <a href="/leaderboard">Leaderboard</a>
+    </nav>
+
+    <%= yield %>
+    <br>
+    <footer>Created by: Simon Skates <%= Time.now %></footer>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+
+<h1>
+  Leaderboard
+</h1>
+
+<table border="1" style="width:300px">
+  <tr>
+    <td>Team</td>
+    <td>Wins</td>
+    <td>Losses</td>
+    <td>Ties</td>
+  </tr>
+  <% @leaderboard.each do |team_row|%>
+    <tr>
+      <td><%=team_row[0]%></td>
+      <% team_row[1].each do |item| %>
+        <td><%=item%></item>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
